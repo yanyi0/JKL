@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKL'
-  s.version          = '0.1.0'
+  s.version          = '0.1.0.Binary'
   s.summary          = 'A short description of JKL.'
 
 # This description is used to generate tags and improve search results.
@@ -27,6 +27,8 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   if s.version.to_s.include?'Binary'    
     puts '-------------------------------------------------------------------'
