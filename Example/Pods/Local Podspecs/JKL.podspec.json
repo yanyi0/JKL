@@ -1,0 +1,27 @@
+{
+  "name": "JKL",
+  "version": "0.1.0.Binary",
+  "summary": "A short description of JKL.",
+  "description": "JKL,测试源码和静态库二进制文件进行切换",
+  "homepage": "https://github.com/yanyi0/JKL",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yanyi0": "785144130@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/yanyi0/JKL.git",
+    "tag": "0.1.0.Binary"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "prepare_command": "/bin/bash build_lib.sh",
+  "source_files": "Pod/Products/include/**",
+  "ios": {
+    "vendored_libraries": "Pod/Products/lib/*.a"
+  },
+  "public_header_files": "Pod/Products/include/*.h"
+}

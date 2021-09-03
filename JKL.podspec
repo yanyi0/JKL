@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'JKL,测试源码和静态库二进制文件进行切换'
 
   s.homepage         = 'https://github.com/yanyi0/JKL'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -30,7 +28,20 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'JKL/Classes/**/*'
+  if s.version.to_s.include?'Binary'    
+    puts '-------------------------------------------------------------------'
+    puts 'Notice:JKL is binary now'
+    puts '-------------------------------------------------------------------'
+    s.prepare_command = '/bin/bash build_lib.sh'
+    s.source_files = 'Pod/Products/include/**'
+    s.ios.vendored_libraries = 'Pod/Products/lib/*.a'
+    s.public_header_files = 'Pod/Products/include/*.h'    
+  else
+    puts '-------------------------------------------------------------------'
+    puts 'Notice:JKL is source code now'
+    puts '-------------------------------------------------------------------'
+    s.source_files = 'JKL/Classes/**/*'
+  end
   
   # s.resource_bundles = {
   #   'JKL' => ['JKL/Assets/*.png']
